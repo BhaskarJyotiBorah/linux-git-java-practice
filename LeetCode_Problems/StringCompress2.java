@@ -27,6 +27,7 @@ public class StringCompress2{
 						  chars[writeIndex++]=c;
 					  }
 				  }
+				  count = 1; //Reset the count for the next char Count (Reset to 1, because its obvious 1 character will exist)
 			  }
 			  
 		  }
