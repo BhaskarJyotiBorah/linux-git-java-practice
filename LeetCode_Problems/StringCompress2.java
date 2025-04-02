@@ -21,7 +21,7 @@ public class StringCompress2{
 				   * Only after the addition of respective count char.
 				   * */
 
-				  if(count>0){
+				  if(count>1){
 					  String num = Integer.toString(count);
 					  for(char c: num.toCharArray()){
 						  chars[writeIndex++]=c;
