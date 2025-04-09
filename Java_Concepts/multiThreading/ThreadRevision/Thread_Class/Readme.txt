@@ -1,3 +1,4 @@
-1. Testing Thread Creation by extending Thread and implementing runnable interface
-2. In this example we saw the use of multi-threading using two threads "hello" and "hello2" We used start method to initialize the multiThreading process
-3. 
+1. Testing Thread by extending Thread Class on HelloWorld class
+2. After extending the Thread, We override a method call void method called run(). 
+3. We put our task inside the run method. 
+4. We then create a Object of the class HelloWorld and call upon the start method to initialize the thread
