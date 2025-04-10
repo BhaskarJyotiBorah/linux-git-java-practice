@@ -15,6 +15,9 @@
 3. After we check if any of the subproblem that we have calulated and stored so far is ready to be returned or not. if dp[n]!!=-1, that means we have encountered this particular nth sub-problem before, so we return dp[n]. This reduces redundant calculation.
 4. We break down the problem into sub-problems and store them in our dp[] array.
 
+## Dry run: 
+![Fibonacci Dry Run](https://github.com/BhaskarJyotiBorah/linux-git-java-practice/blob/master/DSA/Dynamic_Programming/dp_Fibonacci/Fibonacci_Dry_Run.png?raw=true)
+
 ## IMPORTANT POINTS:
 1. This method is called Top-Down because, we break down the problem from the top till we reach the base case and then only we store the calculated sub-problems from bottom to top.
 2. The dp[] array starts storing the values when it hits the base case and gradually stores values of bigger subproblems from bottom to top.
