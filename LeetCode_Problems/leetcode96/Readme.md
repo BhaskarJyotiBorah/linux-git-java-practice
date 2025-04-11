@@ -29,6 +29,9 @@
 5. Divided the left and right subtree and calculated total upon reaching the base case.
 6. When the loop ends we update the dp[] array and return the total.
 
+### Dry run :
+![Dry run](https://github.com/BhaskarJyotiBorah/linux-git-java-practice/blob/master/LeetCode_Problems/leetcode96/Dry_run.png?raw=true)
+
 
 ### Time Complexity: O(n^2)
 1. Loop uses O(n) and inside we divide the loop from 1 till n. So Roughly about 2* O(n) for both right and left sub tree.
