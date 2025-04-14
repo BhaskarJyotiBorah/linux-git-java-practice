@@ -14,7 +14,7 @@ LeetCode #435
        "The earlier we finish an activity, the more free time we leave open for future ones."
        Eg: [1,4],[3,5],[0,6],[5,7],[8,9].
    2. If we do start time sorting here, The first interval would be [0,6] which would block everything else till time 6.
-2. initialize count and second. Second is the variable that will store the second element of the first interval.
+2. initialize count and second, count is number of intervals we need to remove, Second is the variable that will store the second element of the first interval.
 3. We create a loop from the second interval and begin comparing.
 4. We compare the first element of the second interval with second.
 5. If the condition is true then we are going to increase count. 
