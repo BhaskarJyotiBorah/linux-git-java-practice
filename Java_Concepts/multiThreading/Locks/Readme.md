@@ -37,10 +37,17 @@
 
 2. lockInterruptibly():
     1. its a special type of lock that allows ".interrupt()" while .lock() does not.
-    2. It simply means another thread can call .interrup() on the current thread which sets the current thread as "Interrupted flag". 
+    2. It simply means another thread can call .interrupt() on the current thread which sets the current thread as "Interrupted flag". 
     IMPORTANT: .interrupt() method does not kill the thread, its a gentle reminder that the thread is doing something interruptible so its better to end the thread. 
-    3. We surround it with try catch because it might throw interruptedException.
+    3. We surround it with try catch because it might throw interruptedExceptionif it listens.
     4. Make sure to place the lock before the condition logic. And in this case we have to surround it with one more try catch because it could throw interrupted Exception
     
+### Important Points to be noted in BankAccount.java class (20-04-2025)
+    1. When we are using .lockInterruptibly(). we will have to use another boolean flag gotLock. Which will track if The thread was actually locked. There can arise a situation where the Thread got interruped before even locked, but the finally block will execute regardless.
+    2. In the Finally block there is .unlock() which will create a problem when the Thread was not even lock in the first place. It will throw IllegalMonitorStateException.
+    3. Thus it is compulsory to put a gotLock check so that if its locked only then shall it will unlock at the finally block.
+    4. In the catch blocks do not throw the exception, it will end the program.
+    5. Also while sleeping, in the catch block please do not throw the exception.In the inner catch block put a print statement and return from there. This was observed when T1 was interrupted.
+
 
 

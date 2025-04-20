@@ -5,13 +5,17 @@ public class BankAccount{
     private final ReentrantLock lock =  new ReentrantLock();
 
     public void withdrawal(int amount){
+
+        boolean gotLock = false; //boolean gotLock to identify if it has been locked or not
        
+     try{
+
+         lock.lockInterruptibly(); //locks (accepts and respects interrupt())
+         gotLock = true; // Mark as true
+    
         //Let's See Which Thread enters first:
         System.out.println(Thread.currentThread().getName()+" Attempting to withdraw "+amount);
 
-     try{   
-         lock.lockInterruptibly();
-    
           if(balance>=amount){
               System.out.println(Thread.currentThread().getName()+ " proceeding with the withdrawal");
               //Before final withdrawal some work is done. To simulate this we use Thread.sleep();
@@ -22,19 +26,22 @@ public class BankAccount{
 
               }catch(InterruptedException e){
 
-                  System.out.print(e.getMessage()); //Prints exception message
-              }finally{
-                  lock.unlock();
+                  System.out.println(Thread.currentThread().getName() + " has been interrupted"); //Prints exception message
+                                                                                                   return;
               }
  
               balance-=amount; // Balance deducted
               System.out.println(Thread.currentThread().getName() + " completed withdrawal. Remaining Balance: "+ balance);
 
           }else{
-              System.out.println(Thread.currentThread().getName() + " insufficient balance");
+              System.out.println(Thread.currentThread().getName() + " not able to withraw due to insufficient balance");
           }
-     }catch(InterruptedException e){
-         System.out.print(e.getMessage());
+     }catch(InterruptedException e){ //Often throws interrupted exception when interrupted
+         System.out.println(Thread.currentThread().getName() + " has been interrupted"); //Prints if thread gets interrupted. 
+     }finally {
+         if(gotLock){ //if and only if gotLock is true we unlock other wise without this, java would try to unlock a thread that was never locked in the first place. Exceptions like : IllegalMonitorStateException may have been thrown
+             lock.unlock();
+         }
      }
 
 
