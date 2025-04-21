@@ -1,6 +1,6 @@
 # BOTTOM-UP (TABULATION) - DYNAMIC PROGRAMMING
 ## What is Tabulation(Bottom up)?
-1. It is a Dynamic programming Technique where we build the solution *startin from the base case(s)*.
+1. It is a Dynamic programming Technique where we build the solution *starting from the base case(s)*.
 2. We have to fill up a DP Table iteratively.
 3. No recursion, no call stack, Everything happens inside a loop.
 
@@ -16,7 +16,7 @@ We are going to take an example of Fibonacci Series where n = 5.
 5. We Tabulate the Base cases first:
            dp[0] = 0;
            dp[1] = 1;
-6. We Then Loop through and array starting from the next number that we need. Tha is 2. 
+6. We Then Loop through and array starting from the next number that we need. That is 2. 
        ```java
        
        for(int i = 2; i<=n; i++){
@@ -37,10 +37,10 @@ We are going to take an example of Fibonacci Series where n = 5.
 1. Since in Fibonacci series, Fib(n) depends on last two previous states we are going to use only two variables instead of using an array to store every value.
 2. We use a and b to store the base cases 0 and 1.
 3. We create a loop starting from 2, because we want the 3rd element or the element at second index and begin calculating:
-      1. Temp: Temp stores the caluculated current element Fib(n) which is Fib(n-1) + Fib(n-2).
-      2. a: a stores the just previous state of Fib(n) i.e. Fib(n-1).
-      3. b: b stores the current element that we got. F(n).
-      4. And the loop continues. Until the i==n. 
+      * Temp: Temp stores the caluculated current element Fib(n) which is Fib(n-1) + Fib(n-2).
+      *  a: a stores the just previous state of Fib(n) i.e. Fib(n-1).
+      *  b: b stores the current element that we got. F(n).
+      *  And the loop continues. Until the i==n. 
       
 4. When the loop ends, our answer is stored in b. SO we return b.
 
