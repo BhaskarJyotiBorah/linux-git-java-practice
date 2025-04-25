@@ -15,7 +15,7 @@
 3. We put a condition inside the inner loop that says that if we found that dp[j] is true and set contains our substring from j till i, we will mark dp[i] as true and we will break from our loop.
 
 ### Important:
-1. dp[j] at each loop of i we check j  ith times. so if we enounter dp[j] as true for the particular i that we are at and we have found the substring from j till i to be true, we have found our word. And we will mark dp[i] as true to repeat the same cycle for next time.
+1. At each iteration of i, we check all previous j indices. If dp[j] is true and the substring from j to i is in the dictionary, we mark dp[i] as true.
 2. we return dp[n] because if the last element is true that means the last cut is valid and from j till n the word exists in the dictionary, but if not then we are sure that there cannot be a valid cut from the last dp[j] that is true till dp[n].
 
 ## TC & SC:
