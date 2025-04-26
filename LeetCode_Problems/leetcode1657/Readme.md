@@ -34,4 +34,4 @@ Leetcode 1657
 ## TC & SC:
 
 - TC is O(n log n) because the lengths should be same and Arrays.sort uses mergeSort.
-- SC is O(n)
+- SC is O(1)
