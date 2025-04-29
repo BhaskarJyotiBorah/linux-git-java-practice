@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1004" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1456" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1493" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1657" isTestSource="false" packagePrefix="DSA.DataStructures.HashMap.Problems" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1679" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1732" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode392" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode435" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode443" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode605" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode643" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode724" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode74" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode8" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode94" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode96" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
