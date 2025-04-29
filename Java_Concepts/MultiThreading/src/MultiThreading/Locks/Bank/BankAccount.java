@@ -9,48 +9,31 @@ public class BankAccount {
     private final ReentrantLock lock = new ReentrantLock();
 
     public void withdraw(int amount){
-        System.out.println(Thread.currentThread().getName()+ " is going to acquire lock");
+        lock.lock();
         try{
+            System.out.println("Threads waiting to acquire the lock (before lock): " + lock.getQueueLength());
+            System.out.println("Threads waiting to acquire the lock (after lock): " + lock.getQueueLength());
+            System.out.println(Thread.currentThread().getName() + " Hold Count after locking: " + lock.getHoldCount());
+            System.out.println(Thread.currentThread().getName()+ " attempting to withdraw "+ amount);
 
-            if(lock.tryLock(1, TimeUnit.SECONDS)){
-                if (lock.isLocked()) {
-                    System.out.println("Lock is already held before trying to acquire it.");
-                } else {
-                    System.out.println("Lock is free, trying to acquire it now...");
+            if(balance>=amount){
+                try {
+                    Thread.sleep(4000);
+                } catch (InterruptedException e) {
+                    System.out.println(Thread.currentThread().getName() + " was interrupted during sleep.");
+                    return; // exit the method gracefully
                 }
 
-
-                try{
-                    if(lock.isHeldByCurrentThread()){
-                        System.out.println("Lock is currently held by " + Thread.currentThread().getName());
-                    }
-                    System.out.println(Thread.currentThread().getName()+ " attempting to withdraw "+ amount);
-
-                    if(balance>=amount){
-                        try {
-                            Thread.sleep(4000);
-                        } catch (InterruptedException e) {
-                            System.out.println(Thread.currentThread().getName() + " was interrupted during sleep.");
-                            return; // exit the method gracefully
-                        }
-
-                        System.out.println(Thread.currentThread().getName() + " has completed the waiting time and now ready to withdraw "+amount);
-                        balance-=amount;
-                        System.out.println(Thread.currentThread().getName()+ " has withdrawn "+amount+" and remaining bal is "+balance);
-                    }else{
-                        System.out.println(Thread.currentThread().getName()+ " could not borrow "+amount+ " remaining bal: "+balance);
-                    }
-                }finally {
-                    lock.unlock();
-                }
-
+                System.out.println(Thread.currentThread().getName() + " has completed the waiting time and now ready to withdraw "+amount);
+                balance-=amount;
+                System.out.println(Thread.currentThread().getName()+ " has withdrawn "+amount+" and remaining bal is "+balance);
             }else{
-                System.out.println(Thread.currentThread().getName()+" SKIPPED AND ENDED");
+                System.out.println(Thread.currentThread().getName()+ " could not borrow "+amount+ " remaining bal: "+balance);
             }
+        }finally {
+            lock.unlock();
+            System.out.println(Thread.currentThread().getName() + " Hold Count after unlocking: " + lock.getHoldCount());
 
-        }catch (Exception e){
-            Thread.currentThread().interrupt();
         }
-
     }
 }
